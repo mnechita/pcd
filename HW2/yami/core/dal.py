@@ -21,11 +21,7 @@ class DAL:
 
     def __init__(self):
         # dynamodb configuration
-        self.dynamodb = boto3.resource(
-            'dynamodb',
-            aws_access_key_id=AWS_ACCESS_KEY,
-            aws_secret_access_key=AWS_SECRET_KEY,
-            region_name=AWS_REGION)
+        self.dynamodb = boto3.resource('dynamodb', region_name=AWS_REGION)
 
         self.users = self.dynamodb.Table('Players')
         self.cards = self.dynamodb.Table('Cards')
