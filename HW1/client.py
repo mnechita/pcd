@@ -3,6 +3,8 @@ import time
 
 IP_ADDRESS = "127.0.0.1"
 PORT_NO = 6789
+# IP_ADDRESS = "138.197.63.247"
+# PORT_NO = 443
 
 PACKET_SIZE = 1024
 BUFFER_SIZE = 500 * 1024 * 1024
@@ -68,7 +70,7 @@ def tcp(stopwait):
     print('[TCP] Sent %s messages, %s bytes in %.02f seconds' % (nrmsg, nrbytes, elapsed_time))
 
 
-udp(False)
+# udp(False)
 # udp(True)
-# tcp(False)
+tcp(False)
 # tcp(True)

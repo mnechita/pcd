@@ -61,7 +61,7 @@ def tcp(stopwait):
         sock.close()
 
 
-udp(False)
+# udp(False)
 # udp(True)
-# tcp(False)
+tcp(False)
 # tcp(True)
