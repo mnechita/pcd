@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="row">
+    <br/>
+    {% if cards.has_other_pages %}
+        <nav aria-label="...">
+            <ul class="pagination">
+                {% if cards.has_previous %}
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ cards.previous_page_number }}">&laquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled"><a class="page-link" href="#"><span>&laquo;</span></a></li>
+                {% endif %}
+                {% for i in cards.paginator.page_range %}
+                    {% if cards.number == i %}
+                        <li class="page-item active"><a class="page-link" href="#">{{ i }} <span
+                                class="sr-only">(current)</span></a></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if cards.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ cards.next_page_number }}">&raquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled"><a class="page-link" href="#"> <span>&raquo;</span></a></li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    {% endif %}
+
+</div>
+    <div class="container">
+        <div class="row">
+            {% for card in cards %}
+                <div class="col-lg-3 col-md-4 col-sm-6 {% if card.Count == 0 %} dc_gs {% endif %}">
+                    <a href="#">
+                        <img src="{{ card.Uri }}" alt="{{ card.Name }}" class="img-thumbnail my-3">
+                    </a>
+                    <div class="dc_roundnum dc_round dc_selectedcards dc_oncard">
+                        {{ card.Count }}/4
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -17,6 +17,13 @@
 <body>
 <header>
 </header>
+<a href="{% url 'home' %}">Home</a>
+<a href="{% url 'upload' %}">Upload</a>
+<a href="{% url 'view_colection' %}">View Collection</a>
+{% if not user.is_authenticated %}
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'signup' %}">Sign up</a>
+{% endif %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">

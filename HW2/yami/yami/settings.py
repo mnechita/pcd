@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'importer',
+    'core',
     'bootstrap4'
 ]
 
@@ -115,4 +115,12 @@ AWS_REGION = 'eu-west-1'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+LOGIN_REDIRECT_URL = '/'
+
+API_ROOT = 'https://la6roykg73.execute-api.eu-west-1.amazonaws.com/prod/'

@@ -1,4 +1,4 @@
-$(function () {
+// $(function () {
     var ws;
     var canSendFile = false;
 
@@ -6,11 +6,10 @@ $(function () {
         connWebSocket();
     });
 
-    function sendFileName() {
+    function sendFileName(username) {
         // send filename to server through websocket
-        var filename = document.getElementById('userid').val;
-        ws.send(filename);
-        console.log('sent filename');
+        ws.send(username);
+        console.log('sent filename ' + username);
     }
 
     function connWebSocket() {
@@ -63,4 +62,4 @@ $(function () {
 
         reader.readAsArrayBuffer(file);
     }
-});
+// });
