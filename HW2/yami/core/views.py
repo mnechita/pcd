@@ -9,6 +9,7 @@ from requests.compat import urljoin
 from core.dal import DAL
 from core.forms import LoginForm, SignUpForm
 from yami.settings import API_ROOT
+
 data_layer = DAL()
 
 
@@ -62,6 +63,11 @@ def upload(request):
 def view_colection(request):
     page = request.GET.get('page', 1)
     show = request.GET.get('show', 'all')
+    sortBy = request.GET.get('sortBy', 'name')
+    set = request.GET.get('set', '')
+    rarity = request.GET.get('rarity', '')
+
+
     if page == 1:
         username = request.user.username
         api_link = 'view-collection'
@@ -75,6 +81,13 @@ def view_colection(request):
         cards = list(filter(lambda x: x['Count'] > 0, cards))
     elif show == 'unowned':
         cards = list(filter(lambda x: x['Count'] == 0, cards))
+
+    if sortBy == 'set':
+        cards.sort(key=lambda x: x['Set'])
+    if set:
+        cards = list(filter(lambda x: x['Set'] == set, cards))
+    if rarity:
+        cards = list(filter(lambda x: x['Rarity'] == rarity, cards))
 
     paginator = Paginator(cards, 12)
     try:
