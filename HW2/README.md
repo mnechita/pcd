@@ -2,5 +2,5 @@
 * Mihai Nechita
 * EvelineGiosnu
 
-# Arhitecture
+# Architecture
 <img src="./yami.svg">
