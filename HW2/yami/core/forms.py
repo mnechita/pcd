@@ -18,7 +18,7 @@ class SignUpForm(UserCreationForm):
 
 
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(max_length=30, required=True, help_text='username')
+    username = forms.CharField(max_length=30, required=True)
 
     class Meta:
         model = User
