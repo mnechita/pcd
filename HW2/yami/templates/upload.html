@@ -6,7 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <h2>Upload Log file</h2>
-    <h4>Path should be %APPDATA%\..\LocalLow\Wizards Of The Coast\MTGA\output_log.txt</h4>
+    <h4>File should be located at</h4>
+    <h3>%APPDATA%\..\LocalLow\Wizards Of The Coast\MTGA\output_log.txt</h3>
     <input type="file" id="filename" onchange="sendFileName('{{ user.get_username }}')"/>
     <br/>
     <button type="button" class="btn btn-success" onclick="sendFile()">Upload File</button>

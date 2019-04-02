@@ -67,7 +67,6 @@ def view_colection(request):
     set = request.GET.get('set', '')
     rarity = request.GET.get('rarity', '')
 
-
     if page == 1:
         username = request.user.username
         api_link = 'view-collection'
