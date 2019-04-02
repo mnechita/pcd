@@ -8,7 +8,7 @@ from requests.compat import urljoin
 
 from core.dal import DAL
 from core.forms import LoginForm, SignUpForm
-from yami.settings import API_ROOT
+from yami.settings import API_ROOT, CDN_ROOT
 
 data_layer = DAL()
 
@@ -95,5 +95,8 @@ def view_colection(request):
         page_cards = paginator.page(1)
     except EmptyPage:
         page_cards = paginator.page(paginator.num_pages)
+
+    for card in page_cards:
+        card['Uri'] = urljoin(CDN_ROOT, card['Uri'].rsplit('/', 1)[-1])
 
     return render(request, 'view-collection.html', context={'cards': page_cards})

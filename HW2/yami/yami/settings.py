@@ -124,3 +124,4 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/'
 
 API_ROOT = 'https://la6roykg73.execute-api.eu-west-1.amazonaws.com/prod/'
+CDN_ROOT = 'http://d1sraiqe7smdiy.cloudfront.net/'
