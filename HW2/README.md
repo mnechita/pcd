@@ -1,6 +1,6 @@
 # Authors
 * Mihai Nechita
-* EvelineGiosnu
+* Eveline Giosanu
 
 # Architecture
 <img src="./yami.svg">
